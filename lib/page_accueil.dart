@@ -13,19 +13,28 @@ class PageAccueil extends StatelessWidget {
         child: ListView(
           children: [
             const DrawerHeader(
-              decoration: BoxDecoration(color: Colors.blue),
-              child: Text('Menu', style: TextStyle(color: Colors.white, fontSize: 24)),
-            ), // Correction ici
+              decoration: BoxDecoration(color: Colors.pink),
+              child: Text(
+                'Menu',
+                style: TextStyle(color: Colors.white, fontSize: 24),
+              ),
+            ),
             ListTile(
               leading: const Icon(Icons.add),
               title: const Text('Ajouter un Rédacteur'),
-              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const AjoutRedacteurPage())),
-            ), // Correction ici
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => const AjoutRedacteurPage()),
+              ),
+            ),
             ListTile(
               leading: const Icon(Icons.list),
               title: const Text('Informations des Rédacteurs'),
-              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const RedacteurInfoPage())),
-            ), // Correction ici
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => const RedacteurInfoPage()),
+              ),
+            ),
           ],
         ),
       ),
@@ -33,10 +42,14 @@ class PageAccueil extends StatelessWidget {
         child: Column(
           children: [
             const PartieTitre(),
-            Image.asset('assets/couverture.jpg', height: 200, fit: BoxFit.cover),
+            Image.asset(
+              'assets/images/cover.jpg',
+              height: 200,
+              fit: BoxFit.cover,
+            ),
             const PartieTexte(),
             const PartieIcone(),
-            const PartieRubrique()
+            const PartieRubrique(),
           ],
         ),
       ),
@@ -44,7 +57,6 @@ class PageAccueil extends StatelessWidget {
   }
 }
 
-// Widgets réutilisables
 class PartieTitre extends StatelessWidget {
   const PartieTitre({super.key});
 
@@ -54,9 +66,15 @@ class PartieTitre extends StatelessWidget {
       padding: EdgeInsets.all(16.0),
       child: Column(
         children: [
-          Text('Bienvenue au Magazine Infos', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+          Text(
+            'Bienvenue au Magazine Infos',
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          ),
           SizedBox(height: 8),
-          Text('Votre magazine numérique, source d\'inspiration', textAlign: TextAlign.center)
+          Text(
+            'Votre magazine numérique, source d\'inspiration',
+            textAlign: TextAlign.center,
+          ),
         ],
       ),
     );
@@ -88,7 +106,7 @@ class PartieIcone extends StatelessWidget {
       children: [
         Column(children: [Icon(Icons.phone), Text('TEL')]),
         Column(children: [Icon(Icons.mail), Text('MAIL')]),
-        Column(children: [Icon(Icons.share), Text('PARTAGE')])
+        Column(children: [Icon(Icons.share), Text('PARTAGE')]),
       ],
     );
   }
@@ -102,7 +120,10 @@ class PartieRubrique extends StatelessWidget {
     return GridView.count(
       shrinkWrap: true,
       crossAxisCount: 2,
-      children: List.generate(4, (index) => Image.asset('assets/rubrique_$index.jpg')),
+      children: List.generate(
+        4,
+        (index) => Image.asset('assets/rubrique_$index.jpg'),
+      ),
     );
   }
 }
